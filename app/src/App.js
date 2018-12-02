@@ -8,9 +8,20 @@ import { Helmet } from "react-helmet";
 import { BrowserRouter, Route, Switch, Link, Redirect } from "react-router-dom";
 
 class App extends Component {
-  componentDidUpdate() {
-    this.topElement.focus();
-    console.log("component updated");
+  constructor() {
+    super();
+    this.state = {
+      routingOccurredState: false
+    };
+
+    this.routeFocus = this.focusTop.bind(this);
+  }
+
+  focusTop() {
+    this.topElementRef.focus();
+    this.setState({
+      routingOccurredState: false
+    });
   }
 
   render() {
@@ -27,7 +38,7 @@ class App extends Component {
         <div
           tabIndex="-1"
           ref={top => {
-            this.topElement = top;
+            this.topElementRef = top;
           }}
         >
           Top Element
@@ -52,10 +63,33 @@ class App extends Component {
             </ul>
 
             <Switch>
-              <Route path="/Component1" component={Component1} />
-              <Route path="/Component2" component={Component2} />
-              <Route path="/Component3" component={Component3} />
-              <Route path="/Component4" component={Component4} />
+              <Route
+                path="/Component1"
+                render={props => (
+                  <Component1 {...props} focusTopMethod={this.routeFocus} />
+                )}
+              />
+
+              <Route
+                path="/Component2"
+                render={props => (
+                  <Component2 {...props} focusTopMethod={this.routeFocus} />
+                )}
+              />
+
+              <Route
+                path="/Component3"
+                render={props => (
+                  <Component3 {...props} focusTopMethod={this.routeFocus} />
+                )}
+              />
+              <Route
+                path="/Component4"
+                render={props => (
+                  <Component4 {...props} focusTopMethod={this.routeFocus} />
+                )}
+              />
+
               <Redirect from="/" to="/Component1" />
             </Switch>
           </div>

@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 class Component2 extends Component {
   componentDidMount() {
-    this.topHeading.focus();
+    this.props.focusTopMethod();
   }
 
   render() {
@@ -16,12 +16,7 @@ class Component2 extends Component {
           <title>Component 2</title>
         </Helmet>
 
-        <h2
-          tabIndex="-1"
-          ref={componentH2 => {
-            this.topHeading = componentH2;
-          }}
-        >
+        <h2>
           Component 2
         </h2>
 

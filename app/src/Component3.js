@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 class Component3 extends Component {
   componentDidMount() {
-    this.topHeading.focus();
+    this.props.focusTopMethod();
   }
 
   render() {
@@ -16,13 +16,8 @@ class Component3 extends Component {
           <title>Component 3</title>
         </Helmet>
 
-        <h2
-          tabIndex="-1"
-          ref={componentH2 => {
-            this.topHeading = componentH2;
-          }}
-        >
-          Component 3{" "}
+        <h2>
+          Component 3
         </h2>
 
         <img className="cat" src={cat3} alt="" />
