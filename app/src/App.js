@@ -10,13 +10,32 @@ import { BrowserRouter, Route, Switch, Link, Redirect } from "react-router-dom";
 class App extends Component {
   constructor() {
     super();
+    this.state = {
+      routingOccurredState: false
+    };
+    this.routingOccurred = this.routingOccurred.bind(this);
+  }
 
-    this.routeFocus = this.focusTop.bind(this);
+  routingOccurred(title) {
+    console.log("routing occured");
+    this.setState({
+      routingOccurredState: true,
+      routeTitle: title
+    });
   }
 
   focusTop() {
-    var top = document.getElementById("top");
-		top.focus() 
+    console.log("in focus top");
+    this.topElementRef.focus();
+    this.setState({
+      routingOccurredState: false
+    });
+  }
+
+  componentDidUpdate() {
+    if (this.state.routingOccurredState) {
+      this.focusTop();
+    }
   }
 
   render() {
@@ -31,7 +50,7 @@ class App extends Component {
         </Helmet>
 
         <div
-			    id="top"
+          id="top"
           tabIndex="-1"
           ref={top => {
             this.topElementRef = top;
@@ -62,27 +81,39 @@ class App extends Component {
               <Route
                 path="/Component1"
                 render={props => (
-                  <Component1 {...props} focusTopMethod={this.routeFocus} />
+                  <Component1
+                    {...props}
+                    setRoutingOccurred={this.routingOccurred}
+                  />
                 )}
               />
 
               <Route
                 path="/Component2"
                 render={props => (
-                  <Component2 {...props} focusTopMethod={this.routeFocus} />
+                  <Component2
+                    {...props}
+                    setRoutingOccurred={this.routingOccurred}
+                  />
                 )}
               />
 
               <Route
                 path="/Component3"
                 render={props => (
-                  <Component3 {...props} focusTopMethod={this.routeFocus} />
+                  <Component3
+                    {...props}
+                    setRoutingOccurred={this.routingOccurred}
+                  />
                 )}
               />
               <Route
                 path="/Component4"
                 render={props => (
-                  <Component4 {...props} focusTopMethod={this.routeFocus} />
+                  <Component4
+                    {...props}
+                    setRoutingOccurred={this.routingOccurred}
+                  />
                 )}
               />
 

@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 class Component4 extends Component {
   componentDidMount() {
-    this.props.focusTopMethod();
+    this.props.setRoutingOccurred();
   }
 
   render() {
