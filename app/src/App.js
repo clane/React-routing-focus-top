@@ -15,8 +15,8 @@ class App extends Component {
   }
 
   focusTop() {
-    var top = this.topElementRef;
-		setTimeout(function(){ top.focus(); }, 3000);
+    var top = document.getElementById("top");
+		top.focus() 
   }
 
   render() {
@@ -31,6 +31,7 @@ class App extends Component {
         </Helmet>
 
         <div
+			    id="top"
           tabIndex="-1"
           ref={top => {
             this.topElementRef = top;
