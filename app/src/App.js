@@ -10,18 +10,13 @@ import { BrowserRouter, Route, Switch, Link, Redirect } from "react-router-dom";
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      routingOccurredState: false
-    };
 
     this.routeFocus = this.focusTop.bind(this);
   }
 
   focusTop() {
-    this.topElementRef.focus();
-    this.setState({
-      routingOccurredState: false
-    });
+    var top = this.topElementRef;
+		setTimeout(function(){ top.focus(); }, 3000);
   }
 
   render() {
