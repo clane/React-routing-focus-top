@@ -26,6 +26,7 @@ class App extends Component {
 
   focusTop() {
     console.log("in focus top");
+    this.topElementRef.blur();
     this.topElementRef.focus();
     this.setState({
       routingOccurredState: false
