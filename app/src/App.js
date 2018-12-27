@@ -35,7 +35,7 @@ class App extends Component {
 
   focusTop() {
     this.topElementRef.blur();//needed to reset focus in iOS
-    this.topElementRef.focus();
+    setTimeout(()=>{this.topElementRef.focus();},100);//timeout needed for Android 
     this.setState({
       routingOccurredState: false
     });
