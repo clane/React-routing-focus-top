@@ -15,6 +15,14 @@ class App extends Component {
     };
     this.routingOccurred = this.routingOccurred.bind(this);
     this.ie11Polyfill();
+
+    //Initialize aria-current values
+    this.state = {
+      ariaCurrent1: null,
+      ariaCurrent2: null,
+      ariaCurrent3: null,
+      ariaCurrent4: null
+    };
   }
 
   routingOccurred(title) {
@@ -37,6 +45,43 @@ class App extends Component {
   componentDidUpdate() {
     if (this.state.routingOccurredState) {
       this.focusTop();
+      this.setCurrentRouterLink(this.state.routeTitle);
+    }
+  }
+
+  setCurrentRouterLink(componentName) {
+    //Set aria-current
+    //Reset aria-current on all router links first
+    console.log("in setCurrentRouterLink");
+    this.setState({
+      ariaCurrent1: null,
+      ariaCurrent2: null,
+      ariaCurrent3: null,
+      ariaCurrent4: null
+    });
+
+    {
+      /*Set the aria-current property to "page" for the router link that matches componentName */
+    }
+    if (componentName === "component1") {
+      this.setState({
+        ariaCurrent1: "page"
+      });
+    }
+    if (componentName === "component2") {
+      this.setState({
+        ariaCurrent2: "page"
+      });
+    }
+    if (componentName === "component3") {
+      this.setState({
+        ariaCurrent3: "page"
+      });
+    }
+    if (componentName === "component4") {
+      this.setState({
+        ariaCurrent4: "page"
+      });
     }
   }
 
@@ -108,10 +153,26 @@ class App extends Component {
           <div>
 
             <ul role="navigation">
-              <li><Link to="Component1">Component 1</Link></li>
-              <li><Link to="Component2">Component 2</Link></li>
-              <li><Link to="Component3">Component 3</Link></li>
-              <li><Link to="Component4">Component 4</Link></li>
+              <li>
+                <Link aria-current={this.state.ariaCurrent1} to="Component1">
+                  Component 1
+                </Link>
+              </li>
+              <li>
+                <Link aria-current={this.state.ariaCurrent2} to="Component2">
+                  Component 2
+                </Link>
+              </li>
+              <li>
+                <Link aria-current={this.state.ariaCurrent3} to="Component3">
+                  Component 3
+                </Link>
+              </li>
+              <li>
+                <Link aria-current={this.state.ariaCurrent4} to="Component4">
+                  Component 4
+                </Link>
+              </li>
             </ul>
 
             <Switch>
