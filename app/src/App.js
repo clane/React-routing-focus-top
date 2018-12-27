@@ -30,10 +30,11 @@ class App extends Component {
       routingOccurredState: true,
       routeTitle: title
     });
+    this.topElementRef.textContent = "Top of " + title;
   }
 
   focusTop() {
-    this.topElementRef.blur();
+    this.topElementRef.blur();//needed to reset focus in iOS
     this.topElementRef.focus();
     this.setState({
       routingOccurredState: false
