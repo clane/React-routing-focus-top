@@ -26,7 +26,6 @@ class App extends Component {
   }
 
   routingOccurred(title) {
-    console.log("routing occured");
     this.setState({
       routingOccurredState: true,
       routeTitle: title
@@ -34,7 +33,6 @@ class App extends Component {
   }
 
   focusTop() {
-    console.log("in focus top");
     this.topElementRef.blur();
     this.topElementRef.focus();
     this.setState({
@@ -52,7 +50,6 @@ class App extends Component {
   setCurrentRouterLink(componentName) {
     //Set aria-current
     //Reset aria-current on all router links first
-    console.log("in setCurrentRouterLink");
     this.setState({
       ariaCurrent1: null,
       ariaCurrent2: null,
@@ -60,9 +57,6 @@ class App extends Component {
       ariaCurrent4: null
     });
 
-    {
-      /*Set the aria-current property to "page" for the router link that matches componentName */
-    }
     if (componentName === "component1") {
       this.setState({
         ariaCurrent1: "page"
