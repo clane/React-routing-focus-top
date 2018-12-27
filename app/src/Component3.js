@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 
 class Component3 extends Component {
   componentDidMount() {
-    this.props.setRoutingOccurred("component3");
+    this.props.setRoutingOccurred("component 3");
   }
 
   render() {

@@ -4,7 +4,7 @@ import cat1 from "./catImages/293931.svg";
 
 class Component1 extends Component {
   componentDidMount() {
-    this.props.setRoutingOccurred("component1");
+    this.props.setRoutingOccurred("component 1");
   }
 
   render() {

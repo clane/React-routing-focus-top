@@ -34,8 +34,13 @@ class App extends Component {
   }
 
   focusTop() {
-    this.topElementRef.blur();//needed to reset focus in iOS
-    setTimeout(()=>{this.topElementRef.focus();},100);//timeout needed for Android 
+    this.topElementRef.blur(); //needed to reset focus in iOS
+    setTimeout(
+      () => {
+        this.topElementRef.focus();
+      },
+      100
+    ); //timeout needed for Android
     this.setState({
       routingOccurredState: false
     });
@@ -58,22 +63,22 @@ class App extends Component {
       ariaCurrent4: null
     });
 
-    if (componentName === "component1") {
+    if (componentName === "component 1") {
       this.setState({
         ariaCurrent1: "page"
       });
     }
-    if (componentName === "component2") {
+    if (componentName === "component 2") {
       this.setState({
         ariaCurrent2: "page"
       });
     }
-    if (componentName === "component3") {
+    if (componentName === "component 3") {
       this.setState({
         ariaCurrent3: "page"
       });
     }
-    if (componentName === "component4") {
+    if (componentName === "component 4") {
       this.setState({
         ariaCurrent4: "page"
       });
@@ -136,13 +141,22 @@ class App extends Component {
           Top Element
         </div>
 
-        <h1>React Routing When Components Load - Moving Focus to The Top</h1>
+        <h1>React - moving focus to the top after routing</h1>
 
-        <div>
-          <a href="https://github.com/clane/React-routing-focus-top">
-            https://github.com/clane/React-routing-focus-top
-          </a>
-        </div>
+        <ul>
+          <li>
+            <span>Github URL:&nbsp;</span>
+            <a href="https://github.com/clane/React-routing-focus-top">
+              {" "}https://github.com/clane/React-routing-focus-top
+            </a>
+          </li>
+          <li>
+            <span>Hosting URL:&nbsp;</span>
+            <a href="http://chrislane.info/REACT/React-routing-focus-top">
+              http://chrislane.info/REACT/React-routing-focus-top{" "}
+            </a>
+          </li>
+        </ul>
 
         <BrowserRouter>
           <div>
