@@ -82,7 +82,7 @@ class App extends Component {
           <html lang="en" />
           <meta charSet="utf-8" />
           <title>
-            React Routing When Components Load - Moving Focus to Top
+            React Routing When Components Load - Moving Focus to The Top
           </title>
         </Helmet>
 
@@ -96,7 +96,7 @@ class App extends Component {
           Top Element
         </div>
 
-        <h1>React Routing When Components Load - Moving Focus to Top</h1>
+        <h1>React Routing When Components Load - Moving Focus to The Top</h1>
 
         <div>
           <a href="https://github.com/clane/React-routing-focus-top">
